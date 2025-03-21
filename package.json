@@ -1,0 +1,32 @@
+{
+  "name": "gitignore-generator",
+  "displayName": "Gitignore Generator",
+  "description": "Automatically generate and update .gitignore files based on auto-detected and manually selected technologies, including common rules.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onCommand:gitignore-generator.generate"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitignore-generator.generate",
+        "title": "Generate/Update .gitignore"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Gitignore Generator Configuration",
+      "properties": {
+        "gitignoreGenerator.customDetectionMap": {
+          "type": "array",
+          "default": [],
+          "description": "Custom detection rules. Each rule is an object with 'tech' (string) and 'indicator' (string or array). For example: [{\"tech\": \"mytech\", \"indicator\": \"myfile.txt\"}]"
+        }
+      }
+    }
+  }
+}
