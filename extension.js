@@ -43,44 +43,7 @@ const builtInDetectionMap = {
 /**
  * Common ignore rules (static section) that we always want to include.
  */
-const commonRules = `# Operating System Files
-.DS_Store
-Icon?
-Thumbs.db
-Desktop.ini
-
-# Editor and IDE Files
-.vscode/
-.idea/
-*.sublime-workspace
-.metadata
-
-# Dependency and Build Directories
-node_modules/
-dist/
-build/
-venv/
-.venv/
-env/
-ENV/
-__pycache__/
-*.pyc
-target/
-bin/
-obj/
-
-# Temporary and Log Files
-*.log
-tmp/
-temp/
-
-# Environment Files
-.env
-.env.local
-.env.*.local
-
-# Docker
-docker-compose.override.yml`;
+const commonRules = `# Common rules`;
 
 /**
  * Merges built-in detection map with custom detection rules provided in the settings.
