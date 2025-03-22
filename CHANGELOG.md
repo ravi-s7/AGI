@@ -1,9 +1,13 @@
 # Change Log
 
-All notable changes to the "agi" extension will be documented in this file.
+All notable changes to the "Gitignore Generator" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [1.0.0] - 2023-03-22
 
-## [Unreleased]
-
-- Initial release
+### Added
+- Initial release of Gitignore Generator
+- Auto-detection of technologies based on workspace files
+- Integration with gitignore.io API
+- Support for appending or overwriting existing .gitignore files
+- Custom detection rules through configuration
+- Support for 20+ common technologies and frameworks
