@@ -1,65 +1,79 @@
-# agi README
+# Gitignore Generator for VS Code
 
-This is the README for your extension "agi". After writing up a brief description, we recommend including the following sections.
+A VS Code extension that automatically generates and updates `.gitignore` files based on auto-detected and manually selected technologies.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Auto-detection**: Automatically detects technologies used in your workspace
+- **Smart updates**: Append or overwrite existing `.gitignore` files
+- **Comprehensive templates**: Uses [gitignore.io](https://www.toptal.com/developers/gitignore) API to fetch the latest templates
+- **Customizable**: Add your own detection rules for technologies
 
-For example if there is an image subfolder under your extension project workspace:
+![Demo Usage](https://via.placeholder.com/800x450.png?text=Gitignore+Generator+Demo)
 
-\!\[feature X\]\(images/feature-x.png\)
+## Installation
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search for "Gitignore Generator"
+4. Click Install
 
-## Requirements
+## Usage
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Open a workspace in VS Code
+2. Open the Command Palette (Ctrl+Shift+P)
+3. Type "Generate/Update .gitignore" and select the command
+4. Select technologies from the list (auto-detected technologies will be pre-selected)
+5. Choose to append or overwrite if a `.gitignore` file already exists
 
-## Extension Settings
+## Auto-detected Technologies
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+The extension can automatically detect many common technologies including:
 
-For example:
+- Node.js, Python, Java, Ruby, PHP, .NET, Go, Rust
+- Angular, React, Vue (via package.json dependencies)
+- Docker, VS Code, JetBrains IDEs
+- Flutter, Dart, Kotlin, Swift, and more
 
-This extension contributes the following settings:
+## Configuration
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+You can add custom detection rules in your VS Code settings:
 
-## Known Issues
+```json
+"gitignoreGenerator.customDetectionMap": [
+  {
+    "tech": "mytech",
+    "indicator": "myfile.txt"
+  },
+  {
+    "tech": "othertechnology",
+    "indicator": ["file1.txt", "file2.txt"]
+  }
+]
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## How It Works
 
-## Release Notes
+1. The extension scans your workspace for indicator files
+2. Technologies are detected based on file presence (e.g., package.json = Node.js)
+3. Detected technologies are presented in a QuickPick dialog
+4. Selected technologies are used to fetch appropriate gitignore rules
+5. The extension either creates, overwrites, or updates your `.gitignore` file
 
-Users appreciate release notes as you update your extension.
+## Contributing
 
-### 1.0.0
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Initial release of ...
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### 1.0.1
+## License
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Powered by [gitignore.io](https://www.toptal.com/developers/gitignore)**
