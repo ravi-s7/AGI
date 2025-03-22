@@ -41,11 +41,6 @@ const builtInDetectionMap = {
 };
 
 /**
- * Common ignore rules (static section) that we always want to include.
- */
-const commonRules = `# Common rules`;
-
-/**
  * Merges built-in detection map with custom detection rules provided in the settings.
  */
 function getDetectionMap() {
@@ -216,18 +211,14 @@ async function generateOrUpdateGitignore() {
     return;
   }
 
-  // Combine common rules with fetched content.
-  const combinedContent = commonRules + "\n\n" + fetchedContent;
-
   // Write or merge content based on the chosen operation.
   try {
     if (operation === "overwrite" || !fs.existsSync(gitignorePath)) {
-      fs.writeFileSync(gitignorePath, combinedContent, "utf-8");
+      fs.writeFileSync(gitignorePath, fetchedContent, "utf-8");
       vscode.window.showInformationMessage(`.gitignore created/overwritten successfully for: ${selectedTechs.join(", ")}`);
     } else if (operation === "append") {
       const existingContent = fs.readFileSync(gitignorePath, "utf-8");
-      const mergedWithFetched = mergeContent(existingContent, fetchedContent);
-      const finalMerged = mergeContent(mergedWithFetched, commonRules);
+      const finalMerged = mergeContent(existingContent, fetchedContent);
       fs.writeFileSync(gitignorePath, finalMerged, "utf-8");
       vscode.window.showInformationMessage(`.gitignore updated successfully (appended missing rules) for: ${selectedTechs.join(", ")}`);
     }
