@@ -1,13 +1,12 @@
 # Change Log
 
-All notable changes to the "Gitignore Generator" extension will be documented in this file.
+All notable changes to the "AGI - Auto Gitignore Generator" extension will be documented in this file.
 
-## [1.0.0] - 2023-03-22
+## [1.0.0] - 2025-03-22
 
 ### Added
-- Initial release of Gitignore Generator
+- Initial release of AGI - Auto Gitignore Generator
 - Auto-detection of technologies based on workspace files
-- Integration with gitignore.io API
 - Support for appending or overwriting existing .gitignore files
 - Custom detection rules through configuration
-- Support for 20+ common technologies and frameworks
+- Supports 570+ technologies including OSes, IDEs, programming languages, frameworks, and more to generate tailored .gitignore files

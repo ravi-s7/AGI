@@ -44,7 +44,7 @@ const builtInDetectionMap = {
  * Merges built-in detection map with custom detection rules provided in the settings.
  */
 function getDetectionMap() {
-  const config = vscode.workspace.getConfiguration("gitignoreGenerator");
+  const config = vscode.workspace.getConfiguration("agi");
   const customMap = config.get("customDetectionMap", []);
   const mergedMap = { ...builtInDetectionMap };
 
@@ -231,8 +231,8 @@ async function generateOrUpdateGitignore() {
  * Activate the extension.
  */
 function activate(context) {
-  console.log("Gitignore Generator Extension is active.");
-  let disposable = vscode.commands.registerCommand("gitignore-generator.generate", generateOrUpdateGitignore);
+  console.log("AGI Extension is active.");
+  let disposable = vscode.commands.registerCommand("agi.generate", generateOrUpdateGitignore);
   context.subscriptions.push(disposable);
 }
 
@@ -240,7 +240,7 @@ function activate(context) {
  * Deactivate the extension.
  */
 function deactivate() {
-  console.log("Gitignore Generator Extension is now deactivated.");
+  console.log("AGI Extension is now deactivated.");
 }
 
 module.exports = {
