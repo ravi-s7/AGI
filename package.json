@@ -1,9 +1,9 @@
 {
   "name": "agi",
   "displayName": "AGI - Auto Gitignore Generator",
-  "description": "Automatically generate and update .gitignore files based on auto-detected and manually selected technologies.",
+  "description": "Generate and update .gitignore files with auto and custom detection.",
   "version": "1.0.0",
-  "publisher": "agi",
+  "publisher": "Ravi-S7",
   "repository": {
     "type": "git",
     "url": "https://github.com/ravi-s7/AGI.git"
@@ -14,8 +14,47 @@
     "gitignore",
     "git",
     "ignore",
-    "code",
-    "development"
+    "automation",
+    "generator",
+    "auto generate",
+    "development",
+    "node",
+    "node.js",
+    "python",
+    "java",
+    "ruby",
+    "php",
+    ".net",
+    "dotnet",
+    "go",
+    "rust",
+    "angular",
+    "react",
+    "vue.js",
+    "flutter",
+    "dart",
+    "kotlin",
+    "swift",
+    "docker",
+    "workspace",
+    "vscode",
+    "jetbrains",
+    "ide",
+    "project setup",
+    "scm",
+    "source control",
+    "cli",
+    "terminal",
+    "devops",
+    "os files"
+  ],
+  "categories": [
+    "Other",
+    "SCM Providers",
+    "Linters",
+    "Formatters",
+    "Snippets",
+    "Programming Languages"
   ],
   "galleryBanner": {
     "color": "#000000",
@@ -47,5 +86,4 @@
       }
     }
   }
-
 }

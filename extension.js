@@ -63,19 +63,44 @@ function getDetectionMap() {
 function detectTechnologies(folderPath) {
   const detectionMap = getDetectionMap();
   const detected = new Set();
-  let files = [];
-  try {
-    files = fs.readdirSync(folderPath);
-  } catch (err) {
-    console.error("Error reading folder:", err);
+  
+  // Recursive function to scan directories
+  function scanDirectory(dir) {
+    let foundFiles = [];
+    try {
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      
+      // Get immediate files in this directory
+      const files = entries
+        .filter(entry => !entry.isDirectory())
+        .map(entry => entry.name);
+      
+      foundFiles = foundFiles.concat(files);
+      
+      // Recursively scan subdirectories
+      entries
+        .filter(entry => entry.isDirectory())
+        .forEach(entry => {
+          const subdir = path.join(dir, entry.name);
+          foundFiles = foundFiles.concat(scanDirectory(subdir));
+        });
+    } catch (err) {
+      console.error(`Error reading directory ${dir}:`, err);
+    }
+    return foundFiles;
   }
-
+  
+  // Start the scan from the root folder
+  const allFiles = scanDirectory(folderPath);
+  
+  // Check for technology indicators
   for (const [tech, indicator] of Object.entries(detectionMap)) {
     const indicatorsArray = Array.isArray(indicator) ? indicator : [indicator];
-    if (indicatorsArray.some(ind => files.includes(ind))) {
+    if (indicatorsArray.some(ind => allFiles.includes(ind))) {
       detected.add(tech);
     }
   }
+  
   return Array.from(detected);
 }
 
@@ -172,7 +197,6 @@ async function generateOrUpdateGitignore() {
 
   const selected = await vscode.window.showQuickPick(quickPickItems, {
     canPickMany: true,
-    ignoreFocusOut: true,
     placeHolder: "Select technologies for your .gitignore file"
   });
 
