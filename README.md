@@ -1,6 +1,6 @@
 # AGI - Auto Gitignore Generator
 
-Automatically generate and update .gitignore files in VS Code. AGI auto-detects your project's technologies (from 570+ options via gitignore.io) and lets you manually select others to create the perfect .gitignore for your needs.
+Automatically generate and update .gitignore files in VS Code. AGI auto-detects your project's technologies and lets you manually select others to create the perfect .gitignore for your needs.
 
 <!-- Consider adding a catchy banner image or a short GIF here showing AGI in action -->
 
