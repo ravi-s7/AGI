@@ -1,9 +1,9 @@
 {
-  "name": "agi",
+  "name": "agi-auto-gitignore-generator",
   "displayName": "AGI - Auto Gitignore Generator",
   "description": "Generate and update .gitignore files with auto and custom detection.",
   "version": "1.0.0",
-  "publisher": "Ravi-S7",
+  "publisher": "Ravi-S",
   "repository": {
     "type": "git",
     "url": "https://github.com/ravi-s7/AGI.git"
